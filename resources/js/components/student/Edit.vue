@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full sm:w-8/18 md:w-8/12 p-5 bg-white mb-10">
+    <div class="w-full sm:w-8/18 md:w-10/12 p-5 bg-white mb-10">
         
         <div class="pb-10 border-dashed border-b-2 border-orange-500">
             <h2 class="text-xl pb-2">Edit student</h2>
@@ -21,7 +21,7 @@
 
 <script>
 import axios from 'axios'
-
+import * as VueRouter from 'vue-router';
     export default {
         data(){
             return{
@@ -31,6 +31,10 @@ import axios from 'axios'
         },
         methods:{
             createStudent(){
+                if(this.student.dni == '' || this.student.name == '' || this.student.phone == '' || this.student.email == '' || this.student.address == '' || this.student.city == '' || this.student.semester == '' ){
+                    alert('All inputs are mandatory')
+                    return
+                }
                 axios.put('/student/'+this.id, { 
                     dni: this.student.dni, 
                     name: this.student.name, 
@@ -40,6 +44,8 @@ import axios from 'axios'
                     city: this.student.city, 
                     semester:this.student.semester
                 }).then(res =>{
+                    alert('successful request')
+                    this.$router.push("/students");
                 }).catch(err => {
                     console.log(err.response)
 

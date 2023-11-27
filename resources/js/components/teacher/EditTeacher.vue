@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full sm:w-8/18 md:w-8/12 p-5 bg-white mb-10">
+    <div class="w-full sm:w-8/18 md:w-10/12 p-5 bg-white mb-10">
         
         <div class="pb-10 border-dashed border-b-2 border-orange-500">
             <h2 class="text-xl pb-2">Edit teacher</h2>
@@ -30,6 +30,10 @@ import axios from 'axios'
         },
         methods:{
             createteacher(){
+                if(this.teacher.dni == '' || this.teacher.name == '' || this.teacher.phone == '' || this.teacher.email == '' || this.teacher.address == '' || this.teacher.city == ''){
+                    alert('All inputs are mandatory')
+                    return
+                }
                 axios.put('/teacher/'+this.id, { 
                     dni: this.teacher.dni, 
                     name: this.teacher.name, 
@@ -39,6 +43,8 @@ import axios from 'axios'
                     city: this.teacher.city, 
                     semester:this.teacher.semester
                 }).then(res =>{
+                    alert('successful request')
+                    this.$router.push("/teachers");
                 }).catch(err => {
                     console.log(err.response)
 

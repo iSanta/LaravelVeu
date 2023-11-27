@@ -3,6 +3,14 @@
         <h2 class="text-xl py-2">Subject list</h2>
         <div class="flex justify-content-center p-2 border-b-2 border-gray-300 my-2">
             <div class="w-full">
+                <div class="w-full flex justify-content-center">
+                    <div class="md:w-2/12 font-bold">Name</div>
+                    <div class="md:w-7/12 font-bold">Description</div>
+                    <div class="md:w-1/12 font-bold">Credits</div>
+                    <div class="md:w-1/12 font-bold">Knowledge Area</div>
+                    <div class="md:w-1/12 font-bold">Is Mandatory?</div>
+                    <div class="ml-auto font-bold flex md:w-1/12">Actions</div>
+                </div>
                 <div class="w-full flex justify-content-center" v-for="subject in subjects" :key="subject.id">
                     <div class="md:w-2/12">{{ subject.name }}</div>
                     <div class="md:w-7/12">{{ subject.description }}</div>

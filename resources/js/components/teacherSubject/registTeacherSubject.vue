@@ -1,12 +1,15 @@
 <template>
     <div class="pb-10 border-dashed border-b-2 border-orange-500">
         <h2 class="text-xl py-2">Regist new subject for a teacher</h2>
+        
         <form method="POST" v-on:submit.prevent="registRelation()">
+            <h2 class="text-l py-2">This will be used for the "Subject for students" section.</h2>
             <select placeholder="Select a teacher" v-model="regist.teacherId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2">
                 <option disabled value="" default>Select a teacher</option>
                 <option v-for="teacher in teachers" :key="teacher.id" :value="teacher.id">{{ teacher.name }}</option>
 
             </select>
+
             <select v-model="regist.subjectId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2">
                 <option disabled value="">Select a subject</option>
                 <option v-for="subject in subjects" :key="subject.id" :value="subject.id">{{ subject.name }}</option>

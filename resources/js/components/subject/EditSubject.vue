@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full sm:w-8/18 md:w-8/12 p-5 bg-white mb-10">
+    <div class="w-full sm:w-8/18 md:w-10/12 p-5 bg-white mb-10">
         
         <div class="pb-10 border-dashed border-b-2 border-orange-500">
             <h2 class="text-xl pb-2">Edit subject</h2>
@@ -30,6 +30,10 @@ import axios from 'axios'
         },
         methods:{
             createsubject(){
+                if(this.subject.name == '' || this.subject.description == '' || this.subject.credits == '' || this.subject.knowledgeArea == ''){
+                    alert('All inputs are mandatory')
+                    return
+                }
                 axios.put('/subject/'+this.id, { 
                     name: this.subject.name, 
                     description: this.subject.description, 
@@ -37,6 +41,8 @@ import axios from 'axios'
                     knowledgeArea: this.subject.knowledgeArea, 
                     isMandatory: this.subject.isMandatory, 
                 }).then(res =>{
+                    alert('successful request')
+                    this.$router.push("/subjects");
                 }).catch(err => {
                     console.log(err.response)
 

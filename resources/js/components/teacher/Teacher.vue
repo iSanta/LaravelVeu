@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full sm:w-8/18 md:w-8/12 p-5 bg-white">
+    <div class="w-full sm:w-8/18 md:w-10/12 p-5 bg-white">
         <h1 class="text-xl font-bold ">Teachers</h1>
         <ul class="w-full flex py-3 border-dashed border-b-2 border-orange-500">
             <li class="cursor-pointer mx-3" v-on:click="showList=true">List all teachers</li>

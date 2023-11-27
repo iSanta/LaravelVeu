@@ -3,6 +3,7 @@
         <h2 class="text-xl py-2">Regist new subjects for a student</h2>
         <h3 class="text-x py-2">Each student must have at least 7 credits, total credits: {{ this.totalCredits }}</h3>
         <form method="POST" v-on:submit.prevent="registRelation()">
+            <h2 class="text-l pt-2">Select a student.</h2>
             <select placeholder="Select a student" v-model="idStudent" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2">
                 <option disabled value="" default>Select a student</option>
                 <option v-for="student in students" :key="student.id" :value="student.id">{{ student.name }}</option>
@@ -15,6 +16,7 @@
                     <svg v-on:click="increaseSubject()" class="cursor-pointer h-8 w-8 text-green-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="12" y1="8" x2="12" y2="16" />  <line x1="8" y1="12" x2="16" y2="12" /></svg>    
                 </div>
             </span>
+            <h2 class="text-l pt-2">Select a subject.</h2>
             <select @change="switchSelect($event, index)" v-for="index in iter" :key="index" v-model="regist[index]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2">
                 <option disabled value="">Select a subject</option>
                 <option v-for="subject in subjects" :key="subject.idSubject" :value="[subject.idPivot,subject.credits,subject.idSubject]" >{{ subject.nameSubject }} - {{ subject.nameTeacher }} - {{ subject.credits }} credits</option>

@@ -3,6 +3,15 @@
         <h2 class="text-xl py-2">Teacher list</h2>
         <div class="flex justify-content-center p-2 border-b-2 border-gray-300 my-2">
             <div class="w-full">
+                <div class="w-full flex justify-content-center">
+                    <div class="md:w-2/12 font-bold">DNI</div>
+                    <div class="md:w-3/12 font-bold">Name</div>
+                    <div class="md:w-1/12 font-bold">Phone</div>
+                    <div class="md:w-2/12 font-bold">Email</div>
+                    <div class="md:w-2/12 font-bold">Address</div>
+                    <div class="md:w-1/12 font-bold">City</div>
+                    <div class="md:w-1/12 font-bold">Actions</div>
+                </div>
                 <div class="w-full flex justify-content-center" v-for="teacher in teachers" :key="teacher.id">
                     <div class="md:w-2/12">{{ teacher.dni }}</div>
                     <div class="md:w-3/12">{{ teacher.name }}</div>
@@ -10,7 +19,6 @@
                     <div class="md:w-2/12">{{ teacher.email }}</div>
                     <div class="md:w-2/12">{{ teacher.address }}</div>
                     <div class="md:w-1/12">{{ teacher.city }}</div>
-                    <div class="md:w-1/12">{{ teacher.semester }}</div>
                     <div class="ml-auto flex md:w-1/12">
                         <router-link :to="'/editTeacher/'+ teacher.id">
                             <svg class="h-6 w-6 text-orange-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -3,6 +3,16 @@
         <h2 class="text-xl py-2">Student list</h2>
         <div class="flex justify-content-center p-2 border-b-2 border-gray-300 my-2">
             <div class="w-full">
+                <div class="w-full flex justify-content-center">
+                    <div class="md:w-2/12 font-bold">DNI</div>
+                    <div class="md:w-3/12 font-bold">Name</div>
+                    <div class="md:w-1/12 font-bold">Phone</div>
+                    <div class="md:w-2/12 font-bold">Email</div>
+                    <div class="md:w-2/12 font-bold">Address</div>
+                    <div class="md:w-1/12 font-bold">City</div>
+                    <div class="md:w-1/12 font-bold">Semester</div>
+                    <div class="md:w-1/12 font-bold">Actions</div>
+                </div>
                 <div class="w-full flex justify-content-center" v-for="student in students" :key="student.id">
                     <div class="md:w-2/12">{{ student.dni }}</div>
                     <div class="md:w-3/12">{{ student.name }}</div>
